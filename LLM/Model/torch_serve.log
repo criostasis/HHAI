@@ -1,0 +1,719 @@
+WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+2024-04-12T00:08:57,936 [WARN ] main org.pytorch.serve.util.ConfigManager - Your torchserve instance can access any URL to load models. When deploying to production, make sure to limit the set of allowed_urls in config.properties
+2024-04-12T00:08:57,937 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager - Initializing plugins manager...
+2024-04-12T00:08:57,957 [INFO ] main org.pytorch.serve.metrics.configuration.MetricConfiguration - Successfully loaded metrics configuration from /home/criostasis/anaconda3/lib/python3.11/site-packages/ts/configs/metrics.yaml
+2024-04-12T00:08:58,048 [INFO ] main org.pytorch.serve.ModelServer - 
+Torchserve version: 0.10.0
+TS Home: /home/criostasis/anaconda3/lib/python3.11/site-packages
+Current directory: /home/criostasis/PycharmProjects/HHAI/LLM/Model
+Temp directory: /tmp
+Metrics config path: /home/criostasis/anaconda3/lib/python3.11/site-packages/ts/configs/metrics.yaml
+Number of GPUs: 1
+Number of CPUs: 32
+Max heap size: 16012 M
+Python executable: /home/criostasis/anaconda3/bin/python
+Config file: config.properties
+Inference address: http://0.0.0.0:8080
+Management address: http://0.0.0.0:8081
+Metrics address: http://0.0.0.0:8082
+Model Store: /home/criostasis/PycharmProjects/HHAI/LLM/Model
+Initial Models: wizardlmtest.mar
+Log dir: /home/criostasis/PycharmProjects/HHAI/LLM/Model/logs
+Metrics dir: /home/criostasis/PycharmProjects/HHAI/LLM/Model/logs
+Netty threads: 0
+Netty client threads: 0
+Default workers per model: 1
+Blacklist Regex: N/A
+Maximum Response Size: 6553500
+Maximum Request Size: 6553500
+Limit Maximum Image Pixels: true
+Prefer direct buffer: false
+Allowed Urls: [file://.*|http(s)?://.*]
+Custom python dependency for model allowed: false
+Enable metrics API: true
+Metrics mode: LOG
+Disable system metrics: false
+Workflow Store: /home/criostasis/PycharmProjects/HHAI/LLM/Model
+CPP log config: N/A
+Model config: N/A
+System metrics command: default
+2024-04-12T00:08:58,051 [INFO ] main org.pytorch.serve.servingsdk.impl.PluginsManager -  Loading snapshot serializer plugin...
+2024-04-12T00:08:58,059 [INFO ] main org.pytorch.serve.ModelServer - Loading initial models: wizardlmtest.mar
+2024-04-12T00:09:41,662 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Adding new version 1.0 for model wizardlmtest
+2024-04-12T00:09:41,663 [DEBUG] main org.pytorch.serve.wlm.ModelVersionedRefs - Setting default version to 1.0 for model wizardlmtest
+2024-04-12T00:09:41,663 [INFO ] main org.pytorch.serve.wlm.ModelManager - Model wizardlmtest loaded.
+2024-04-12T00:09:41,663 [DEBUG] main org.pytorch.serve.wlm.ModelManager - updateModel: wizardlmtest, count: 1
+2024-04-12T00:09:41,671 [INFO ] main org.pytorch.serve.ModelServer - Initialize Inference server with: EpollServerSocketChannel.
+2024-04-12T00:09:41,671 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - launcherAvailable cmdline: [python, -m, torch.backends.xeon.run_cpu, --use_logical_core, --no_python, hostname]
+2024-04-12T00:09:41,693 [INFO ] main org.pytorch.serve.ModelServer - Inference API bind to: http://0.0.0.0:8080
+2024-04-12T00:09:41,693 [INFO ] main org.pytorch.serve.ModelServer - Initialize Management server with: EpollServerSocketChannel.
+2024-04-12T00:09:41,693 [INFO ] main org.pytorch.serve.ModelServer - Management API bind to: http://0.0.0.0:8081
+2024-04-12T00:09:41,693 [INFO ] main org.pytorch.serve.ModelServer - Initialize Metrics server with: EpollServerSocketChannel.
+2024-04-12T00:09:41,693 [INFO ] main org.pytorch.serve.ModelServer - Metrics API bind to: http://0.0.0.0:8082
+Model server started.
+2024-04-12T00:09:41,792 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - worker pid is not available yet.
+2024-04-12T00:09:41,903 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - Parse metrics failed: Note: NumExpr detected 32 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-04-12T00:09:41,903 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - Parse metrics failed: NumExpr defaulting to 8 threads.
+2024-04-12T00:09:42,090 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:224.55261993408203|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:226.11272811889648|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:50.2|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:5.324865657059111|#Level:Host,DeviceId:0|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:872.0|#Level:Host,DeviceId:0|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:2.0|#Level:Host,DeviceId:0|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:53581.77734375|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:9682.07421875|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:42,091 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:16.3|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898582
+2024-04-12T00:09:43,361 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerLifeCycle - Worker cmdline: [/home/criostasis/anaconda3/bin/python, -m, torch.backends.xeon.run_cpu, --use_logical_core, /home/criostasis/anaconda3/lib/python3.11/site-packages/ts/model_service_worker.py, --sock-type, unix, --sock-name, /tmp/.ts.sock.9000, --metrics-config, /home/criostasis/anaconda3/lib/python3.11/site-packages/ts/configs/metrics.yaml]
+2024-04-12T00:09:43,850 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 2024-04-12 00:09:43,850 - __main__ - INFO - Use JeMalloc memory allocator
+2024-04-12T00:09:43,850 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 2024-04-12 00:09:43,850 - __main__ - INFO - OMP_NUM_THREADS=32
+2024-04-12T00:09:43,850 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 2024-04-12 00:09:43,850 - __main__ - INFO - Using Intel OpenMP
+2024-04-12T00:09:43,851 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 2024-04-12 00:09:43,850 - __main__ - INFO - KMP_BLOCKTIME=1
+2024-04-12T00:09:43,851 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 2024-04-12 00:09:43,850 - __main__ - INFO - LD_PRELOAD=/home/criostasis/anaconda3/lib/libiomp5.so:/home/criostasis/anaconda3/lib/libjemalloc.so
+2024-04-12T00:09:43,851 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 2024-04-12 00:09:43,850 - __main__ - INFO - numactl -C 0-31 -m 0 /home/criostasis/anaconda3/bin/python -u /home/criostasis/anaconda3/lib/python3.11/site-packages/ts/model_service_worker.py --sock-type unix --sock-name /tmp/.ts.sock.9000 --metrics-config /home/criostasis/anaconda3/lib/python3.11/site-packages/ts/configs/metrics.yaml
+2024-04-12T00:09:44,330 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - s_name_part0=/tmp/.ts.sock, s_name_part1=9000, pid=367869
+2024-04-12T00:09:44,331 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Listening on port: /tmp/.ts.sock.9000
+2024-04-12T00:09:44,333 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Successfully loaded /home/criostasis/anaconda3/lib/python3.11/site-packages/ts/configs/metrics.yaml.
+2024-04-12T00:09:44,333 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [PID]367869
+2024-04-12T00:09:44,333 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Torch worker started.
+2024-04-12T00:09:44,333 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Python runtime: 3.11.7
+2024-04-12T00:09:44,334 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-wizardlmtest_1.0 State change null -> WORKER_STARTED
+2024-04-12T00:09:44,335 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Connecting to: /tmp/.ts.sock.9000
+2024-04-12T00:09:44,338 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Connection accepted: /tmp/.ts.sock.9000.
+2024-04-12T00:09:44,340 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd LOAD repeats 1 to backend at: 1712898584340
+2024-04-12T00:09:44,340 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1712898584340
+2024-04-12T00:09:44,352 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - model_name: wizardlmtest, batchSize: 1
+2024-04-12T00:09:44,407 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Enabled tensor cores
+2024-04-12T00:09:44,407 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - proceeding without onnxruntime
+2024-04-12T00:09:44,407 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Torch TensorRT not enabled
+2024-04-12T00:09:45,106 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - ggml_init_cublas: GGML_CUDA_FORCE_MMQ:   no
+2024-04-12T00:09:45,106 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - ggml_init_cublas: CUDA_USE_TENSOR_CORES: yes
+2024-04-12T00:09:45,106 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - ggml_init_cublas: found 1 CUDA devices:
+2024-04-12T00:09:45,106 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG -   Device 0: NVIDIA GeForce RTX 4080, compute capability 8.9
+2024-04-12T00:09:45,156 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: loaded meta data with 19 key-value pairs and 363 tensors from /tmp/models/6a561b247ef54610a9eaefb5c11e4179/wizardlm-13b-v1.2.Q4_0.gguf (version GGUF V2)
+2024-04-12T00:09:45,156 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    0:                token_embd.weight q4_0     [  5120, 32000,     1,     1 ]
+2024-04-12T00:09:45,156 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    1:              blk.0.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,156 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    2:              blk.0.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,156 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    3:              blk.0.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,156 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    4:         blk.0.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,156 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    5:            blk.0.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    6:            blk.0.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    7:              blk.0.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    8:           blk.0.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor    9:            blk.0.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   10:              blk.1.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   11:              blk.1.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   12:              blk.1.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   13:         blk.1.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   14:            blk.1.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   15:            blk.1.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   16:              blk.1.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   17:           blk.1.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   18:            blk.1.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   19:              blk.2.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   20:              blk.2.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   21:              blk.2.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   22:         blk.2.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   23:            blk.2.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   24:            blk.2.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,157 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   25:              blk.2.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   26:           blk.2.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   27:            blk.2.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   28:              blk.3.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   29:              blk.3.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   30:              blk.3.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   31:         blk.3.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   32:            blk.3.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   33:            blk.3.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   34:              blk.3.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   35:           blk.3.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   36:            blk.3.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   37:              blk.4.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   38:              blk.4.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   39:              blk.4.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   40:         blk.4.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   41:            blk.4.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   42:            blk.4.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   43:              blk.4.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   44:           blk.4.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   45:            blk.4.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   46:              blk.5.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   47:              blk.5.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   48:              blk.5.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   49:         blk.5.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,158 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   50:            blk.5.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   51:            blk.5.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   52:              blk.5.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   53:           blk.5.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   54:            blk.5.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   55:              blk.6.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   56:              blk.6.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   57:              blk.6.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   58:         blk.6.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   59:            blk.6.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   60:            blk.6.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   61:              blk.6.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   62:           blk.6.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   63:            blk.6.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   64:              blk.7.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   65:              blk.7.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   66:              blk.7.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   67:         blk.7.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   68:            blk.7.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   69:            blk.7.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   70:              blk.7.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   71:           blk.7.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   72:            blk.7.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   73:              blk.8.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   74:              blk.8.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   75:              blk.8.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,159 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   76:         blk.8.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   77:            blk.8.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   78:            blk.8.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   79:              blk.8.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   80:           blk.8.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   81:            blk.8.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   82:              blk.9.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   83:              blk.9.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   84:              blk.9.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   85:         blk.9.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   86:            blk.9.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   87:            blk.9.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   88:              blk.9.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   89:           blk.9.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   90:            blk.9.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   91:             blk.10.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   92:             blk.10.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   93:             blk.10.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   94:        blk.10.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   95:           blk.10.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   96:           blk.10.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   97:             blk.10.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   98:          blk.10.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor   99:           blk.10.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  100:             blk.11.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  101:             blk.11.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,160 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  102:             blk.11.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  103:        blk.11.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  104:           blk.11.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  105:           blk.11.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  106:             blk.11.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  107:          blk.11.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  108:           blk.11.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  109:             blk.12.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  110:             blk.12.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  111:             blk.12.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  112:        blk.12.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  113:           blk.12.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  114:           blk.12.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  115:             blk.12.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  116:          blk.12.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  117:           blk.12.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  118:             blk.13.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  119:             blk.13.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  120:             blk.13.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  121:        blk.13.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  122:           blk.13.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  123:           blk.13.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  124:             blk.13.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  125:          blk.13.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  126:           blk.13.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  127:             blk.14.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  128:             blk.14.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  129:             blk.14.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  130:        blk.14.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  131:           blk.14.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  132:           blk.14.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  133:             blk.14.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  134:          blk.14.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,161 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  135:           blk.14.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  136:             blk.15.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  137:             blk.15.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  138:             blk.15.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  139:        blk.15.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  140:           blk.15.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  141:           blk.15.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  142:             blk.15.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  143:          blk.15.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  144:           blk.15.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  145:             blk.16.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  146:             blk.16.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  147:             blk.16.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  148:        blk.16.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  149:           blk.16.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  150:           blk.16.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  151:             blk.16.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  152:          blk.16.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  153:           blk.16.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  154:             blk.17.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  155:             blk.17.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  156:             blk.17.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  157:        blk.17.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  158:           blk.17.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  159:           blk.17.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  160:             blk.17.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  161:          blk.17.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  162:           blk.17.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  163:             blk.18.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  164:             blk.18.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  165:             blk.18.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  166:        blk.18.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  167:           blk.18.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  168:           blk.18.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  169:             blk.18.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  170:          blk.18.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  171:           blk.18.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  172:             blk.19.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  173:             blk.19.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  174:             blk.19.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  175:        blk.19.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  176:           blk.19.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  177:           blk.19.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,162 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  178:             blk.19.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  179:          blk.19.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  180:           blk.19.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  181:             blk.20.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  182:             blk.20.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  183:             blk.20.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  184:        blk.20.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  185:           blk.20.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  186:           blk.20.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  187:             blk.20.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  188:          blk.20.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  189:           blk.20.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  190:             blk.21.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  191:             blk.21.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  192:             blk.21.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  193:        blk.21.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  194:           blk.21.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  195:           blk.21.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  196:             blk.21.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  197:          blk.21.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  198:           blk.21.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  199:             blk.22.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  200:             blk.22.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  201:             blk.22.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  202:        blk.22.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  203:           blk.22.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  204:           blk.22.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  205:             blk.22.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  206:          blk.22.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  207:           blk.22.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  208:             blk.23.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  209:             blk.23.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  210:             blk.23.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  211:        blk.23.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  212:           blk.23.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  213:           blk.23.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  214:             blk.23.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  215:          blk.23.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  216:           blk.23.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  217:             blk.24.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  218:             blk.24.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  219:             blk.24.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  220:        blk.24.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  221:           blk.24.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  222:           blk.24.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  223:             blk.24.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  224:          blk.24.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  225:           blk.24.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  226:             blk.25.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  227:             blk.25.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  228:             blk.25.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  229:        blk.25.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  230:           blk.25.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,163 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  231:           blk.25.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  232:             blk.25.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  233:          blk.25.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  234:           blk.25.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  235:             blk.26.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  236:             blk.26.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  237:             blk.26.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  238:        blk.26.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  239:           blk.26.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  240:           blk.26.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  241:             blk.26.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  242:          blk.26.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  243:           blk.26.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  244:             blk.27.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  245:             blk.27.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  246:             blk.27.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  247:        blk.27.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  248:           blk.27.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  249:           blk.27.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  250:             blk.27.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  251:          blk.27.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  252:           blk.27.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  253:             blk.28.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  254:             blk.28.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  255:             blk.28.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  256:        blk.28.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  257:           blk.28.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  258:           blk.28.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  259:             blk.28.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  260:          blk.28.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  261:           blk.28.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  262:             blk.29.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  263:             blk.29.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  264:             blk.29.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  265:        blk.29.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  266:           blk.29.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  267:           blk.29.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  268:             blk.29.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  269:          blk.29.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  270:           blk.29.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  271:             blk.30.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  272:             blk.30.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  273:             blk.30.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  274:        blk.30.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  275:           blk.30.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  276:           blk.30.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  277:             blk.30.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  278:          blk.30.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  279:           blk.30.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  280:             blk.31.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,164 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  281:             blk.31.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  282:             blk.31.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  283:        blk.31.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  284:           blk.31.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  285:           blk.31.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  286:             blk.31.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  287:          blk.31.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  288:           blk.31.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  289:             blk.32.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  290:             blk.32.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  291:             blk.32.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  292:        blk.32.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  293:           blk.32.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  294:           blk.32.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  295:             blk.32.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  296:          blk.32.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  297:           blk.32.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  298:             blk.33.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  299:             blk.33.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  300:             blk.33.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  301:        blk.33.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  302:           blk.33.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  303:           blk.33.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  304:             blk.33.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  305:          blk.33.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  306:           blk.33.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  307:             blk.34.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  308:             blk.34.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  309:             blk.34.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  310:        blk.34.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  311:           blk.34.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  312:           blk.34.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  313:             blk.34.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  314:          blk.34.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  315:           blk.34.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  316:             blk.35.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  317:             blk.35.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  318:             blk.35.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  319:        blk.35.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  320:           blk.35.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  321:           blk.35.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  322:             blk.35.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  323:          blk.35.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  324:           blk.35.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  325:             blk.36.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  326:             blk.36.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  327:             blk.36.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  328:        blk.36.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  329:           blk.36.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  330:           blk.36.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  331:             blk.36.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  332:          blk.36.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  333:           blk.36.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  334:             blk.37.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  335:             blk.37.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  336:             blk.37.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  337:        blk.37.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  338:           blk.37.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  339:           blk.37.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  340:             blk.37.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  341:          blk.37.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,165 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  342:           blk.37.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  343:             blk.38.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  344:             blk.38.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  345:             blk.38.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  346:        blk.38.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  347:           blk.38.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  348:           blk.38.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  349:             blk.38.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  350:          blk.38.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  351:           blk.38.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  352:             blk.39.attn_q.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  353:             blk.39.attn_k.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  354:             blk.39.attn_v.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  355:        blk.39.attn_output.weight q4_0     [  5120,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  356:           blk.39.ffn_gate.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  357:           blk.39.ffn_down.weight q4_0     [ 13824,  5120,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  358:             blk.39.ffn_up.weight q4_0     [  5120, 13824,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  359:          blk.39.attn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  360:           blk.39.ffn_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  361:               output_norm.weight f32      [  5120,     1,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - tensor  362:                    output.weight q6_K     [  5120, 32000,     1,     1 ]
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   0:                       general.architecture str              = llama
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   1:                               general.name str              = LLaMA v2
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   2:                       llama.context_length u32              = 4096
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   3:                     llama.embedding_length u32              = 5120
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   4:                          llama.block_count u32              = 40
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   5:                  llama.feed_forward_length u32              = 13824
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   6:                 llama.rope.dimension_count u32              = 128
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   7:                 llama.attention.head_count u32              = 40
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   8:              llama.attention.head_count_kv u32              = 40
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv   9:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  10:                          general.file_type u32              = 2
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  11:                       tokenizer.ggml.model str              = llama
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  12:                      tokenizer.ggml.tokens arr[str,32000]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  13:                      tokenizer.ggml.scores arr[f32,32000]   = [0.000000, 0.000000, 0.000000, 0.0000...
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  14:                  tokenizer.ggml.token_type arr[i32,32000]   = [2, 3, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  15:                tokenizer.ggml.bos_token_id u32              = 1
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  16:                tokenizer.ggml.eos_token_id u32              = 2
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  17:            tokenizer.ggml.unknown_token_id u32              = 0
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - kv  18:               general.quantization_version u32              = 2
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - type  f32:   81 tensors
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - type q4_0:  281 tensors
+2024-04-12T00:09:45,166 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_model_loader: - type q6_K:    1 tensors
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_vocab: special tokens definition check successful ( 259/32000 ).
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: format           = GGUF V2
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: arch             = llama
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: vocab type       = SPM
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_vocab          = 32000
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_merges         = 0
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_ctx_train      = 4096
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_embd           = 5120
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_head           = 40
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_head_kv        = 40
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_layer          = 40
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_rot            = 128
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_gqa            = 1
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: f_norm_eps       = 0.0e+00
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: f_norm_rms_eps   = 1.0e-05
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: f_clamp_kqv      = 0.0e+00
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: f_max_alibi_bias = 0.0e+00
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_ff             = 13824
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_expert         = 0
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_expert_used    = 0
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: rope scaling     = linear
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: freq_base_train  = 10000.0
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: freq_scale_train = 1
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: n_yarn_orig_ctx  = 4096
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: rope_finetuned   = unknown
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: model type       = 13B
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: model ftype      = Q4_0
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: model params     = 13.02 B
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: model size       = 6.86 GiB (4.53 BPW) 
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: general.name     = LLaMA v2
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: BOS token        = 1 '<s>'
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: EOS token        = 2 '</s>'
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: UNK token        = 0 '<unk>'
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_print_meta: LF token         = 13 '<0x0A>'
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_tensors: ggml ctx size =    0.14 MiB
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_tensors: using CUDA for GPU acceleration
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_tensors: mem required  = 7024.03 MiB
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_tensors: offloading 0 repeating layers to GPU
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_tensors: offloaded 0/41 layers to GPU
+2024-04-12T00:09:45,171 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llm_load_tensors: VRAM used: 0.00 MiB
+2024-04-12T00:09:45,305 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - ...................................................................................................
+2024-04-12T00:09:45,305 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_new_context_with_model: n_ctx      = 512
+2024-04-12T00:09:45,305 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_new_context_with_model: freq_base  = 10000.0
+2024-04-12T00:09:45,305 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_new_context_with_model: freq_scale = 1
+2024-04-12T00:09:45,395 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_new_context_with_model: KV self size  =  400.00 MiB, K (f16):  200.00 MiB, V (f16):  200.00 MiB
+2024-04-12T00:09:45,395 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_build_graph: non-view tensors processed: 844/844
+2024-04-12T00:09:45,396 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_new_context_with_model: compute buffer total size = 78.19 MiB
+2024-04-12T00:09:45,409 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_new_context_with_model: VRAM scratch buffer: 75.00 MiB
+2024-04-12T00:09:45,409 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_new_context_with_model: total VRAM used: 75.00 MiB (model: 0.00 MiB, context: 75.00 MiB)
+2024-04-12T00:09:45,409 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - AVX = 1 | AVX2 = 1 | AVX512 = 0 | AVX512_VBMI = 0 | AVX512_VNNI = 0 | FMA = 1 | NEON = 0 | ARM_FMA = 0 | F16C = 1 | FP16_VA = 0 | WASM_SIMD = 0 | BLAS = 1 | SSE3 = 1 | SSSE3 = 1 | VSX = 0 | 
+2024-04-12T00:09:45,410 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Loading faiss with AVX2 support.
+2024-04-12T00:09:45,421 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Successfully loaded faiss with AVX2 support.
+2024-04-12T00:09:47,917 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama.cpp: using Vulkan on NVIDIA GeForce RTX 4080
+2024-04-12T00:09:47,918 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Model path: /tmp/models/6a561b247ef54610a9eaefb5c11e4179/wizardlm-13b-v1.2.Q4_0.gguf
+2024-04-12T00:09:47,918 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Index path: /tmp/models/6a561b247ef54610a9eaefb5c11e4179
+2024-04-12T00:09:47,918 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Device info: NVIDIA GeForce RTX 4080
+2024-04-12T00:09:47,920 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 3580
+2024-04-12T00:09:47,920 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - W-9000-wizardlmtest_1.0 State change WORKER_STARTED -> WORKER_MODEL_LOADED
+2024-04-12T00:09:47,920 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - WorkerLoadTime.Milliseconds:6251.0|#WorkerName:W-9000-wizardlmtest_1.0,Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898587
+2024-04-12T00:09:47,921 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:1.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898587
+2024-04-12T00:09:52,938 [INFO ] epollEventLoopGroup-3-1 TS_METRICS - ts_inference_requests_total.Count:1.0|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898592
+2024-04-12T00:09:52,939 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd PREDICT repeats 1 to backend at: 1712898592939
+2024-04-12T00:09:52,939 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1712898592939
+2024-04-12T00:09:52,939 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Backend received inference at: 1712898592
+2024-04-12T00:09:53,126 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 
+2024-04-12T00:09:53,126 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:        load time =     182.87 ms
+2024-04-12T00:09:53,126 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:      sample time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+2024-04-12T00:09:53,126 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings: prompt eval time =     182.81 ms /     2 tokens (   91.40 ms per token,    10.94 tokens per second)
+2024-04-12T00:09:53,126 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+2024-04-12T00:09:53,126 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:       total time =     184.08 ms
+2024-04-12T00:09:53,459 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,459 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,459 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new StuffDocumentsChain chain...[0m
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new LLMChain chain...[0m
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Prompt after formatting:
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [32;1m[1;3mUse the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - one retake for a better grade. Because they previously passed the course, they would not be able to take for a third time and receive aid. Q: Can a student repeat a WP? A course from which a student withdraws does not count as a repetition of a
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - and what does that mean? Yes, HSU does have a rolling admission process.
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - can't wait to see you at HSU! Click the button below and get started on your application. If you have any questions, you can call Admissions at 877-GO-HSUTX. The best way to really experience Hardin-Simmons University is through a campus visit. We host a
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - can't wait to see you at HSU! Click the button below and get started on your application. If you have any questions, you can call Admissions at 877-GO-HSUTX. The best way to really experience Hardin-Simmons University is through a campus visit. We host a
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Question: hello
+2024-04-12T00:09:53,460 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Helpful Answer:[0m
+2024-04-12T00:09:57,296 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:57,296 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:09:57,296 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:09:57,296 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:09:57,648 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Chat History Updated for User kwmhfi: [('hello', ' Hello! How may I assist you today?')]
+2024-04-12T00:09:57,648 [INFO ] W-9000-wizardlmtest_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]HandlerTime.Milliseconds:4708.52|#ModelName:wizardlmtest,Level:Model|#type:GAUGE|#hostname:criostasis-Z690-AERO-D,1712898597,36f2bb09-453c-466e-850d-4376e19fa361, pattern=[METRICS]
+2024-04-12T00:09:57,648 [INFO ] W-9000-wizardlmtest_1.0 ACCESS_LOG - /127.0.0.1:51950 "POST /predictions/wizardlmtest HTTP/1.1" 200 4711
+2024-04-12T00:09:57,648 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_METRICS - HandlerTime.ms:4708.52|#ModelName:wizardlmtest,Level:Model|#hostname:criostasis-Z690-AERO-D,requestID:36f2bb09-453c-466e-850d-4376e19fa361,timestamp:1712898597
+2024-04-12T00:09:57,650 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898597
+2024-04-12T00:09:57,650 [INFO ] W-9000-wizardlmtest_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]PredictionTime.Milliseconds:4708.57|#ModelName:wizardlmtest,Level:Model|#type:GAUGE|#hostname:criostasis-Z690-AERO-D,1712898597,36f2bb09-453c-466e-850d-4376e19fa361, pattern=[METRICS]
+2024-04-12T00:09:57,650 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_METRICS - PredictionTime.ms:4708.57|#ModelName:wizardlmtest,Level:Model|#hostname:criostasis-Z690-AERO-D,requestID:36f2bb09-453c-466e-850d-4376e19fa361,timestamp:1712898597
+2024-04-12T00:09:57,650 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - ts_inference_latency_microseconds.Microseconds:4709766.528|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898597
+2024-04-12T00:09:57,650 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - ts_queue_latency_microseconds.Microseconds:75.07|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898597
+2024-04-12T00:09:57,650 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.job.RestJob - Waiting time ns: 75070, Backend time ns: 4711932578
+2024-04-12T00:09:57,651 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - QueueTime.Milliseconds:0.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898597
+2024-04-12T00:09:57,651 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 4709
+2024-04-12T00:09:57,651 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:3.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898597
+2024-04-12T00:10:02,575 [INFO ] epollEventLoopGroup-3-2 TS_METRICS - ts_inference_requests_total.Count:1.0|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898602
+2024-04-12T00:10:02,576 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd PREDICT repeats 1 to backend at: 1712898602576
+2024-04-12T00:10:02,576 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1712898602576
+2024-04-12T00:10:02,576 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Backend received inference at: 1712898602
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new LLMChain chain...[0m
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Prompt after formatting:
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [32;1m[1;3mGiven the following conversation and a follow up question, rephrase the follow up question to be a standalone question, in its original language.
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Chat History:
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Human: hello
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Assistant:  Hello! How may I assist you today?
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Follow Up Input: tell me about HSU
+2024-04-12T00:10:02,578 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Standalone question:[0m
+2024-04-12T00:10:04,010 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,010 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:10:04,739 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 
+2024-04-12T00:10:04,740 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:        load time =     182.87 ms
+2024-04-12T00:10:04,740 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:      sample time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+2024-04-12T00:10:04,740 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings: prompt eval time =     728.52 ms /    12 tokens (   60.71 ms per token,    16.47 tokens per second)
+2024-04-12T00:10:04,740 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+2024-04-12T00:10:04,740 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:       total time =     728.99 ms
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new StuffDocumentsChain chain...[0m
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new LLMChain chain...[0m
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Prompt after formatting:
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [32;1m[1;3mUse the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - grade. What is SAP? – Satisfactory Academic Progress (SAP) means that you are satisfactorily progressing toward degree completion by qualitative (GPA) and quantitative (Pace and Maximum Timeframe) measures. The HSU Financial Aid Office is required by
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - to see you at HSU! Click the button below and get started on your application. If you have any questions, you can call Admissions at 877-GO-HSUTX. The best way to really experience Hardin-Simmons University is through a campus visit. We host a variety of
+2024-04-12T00:10:04,743 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,744 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - on areas where I could improve.” -Marcus McCray, Licensed Professional Counselor-Associate, ‘23 “I really appreciated the fact that all of the professors were from such a wide array of backgrounds and theoretical orientations, so we were able to have a
+2024-04-12T00:10:04,744 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,744 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - status) the student previously had. We can't wait to see you at HSU! Click the button below and get started on your application. If you have any questions, you can call Admissions at 877-GO-HSUTX. The best way to really experience Hardin-Simmons
+2024-04-12T00:10:04,744 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:04,744 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Question:  What is HSU and what does it offer?
+2024-04-12T00:10:04,744 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Helpful Answer:[0m
+2024-04-12T00:10:11,815 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:11,815 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:10:11,815 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:11,815 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Chat History Updated for User kwmhfi: [('hello', ' Hello! How may I assist you today?'), ('tell me about HSU', "  HSU stands for Hardin-Simmons University, a private Christian university located in Abilene, Texas. It offers over 70 undergraduate majors and programs, as well as several graduate degrees including Master's and Doctoral programs. The campus is home to the Cowboy Church, which hosts weekly worship services for students, faculty, and staff. HSU also has a variety of student organizations and clubs that cater to different interests such as music, sports, community service, and more.")]
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]HandlerTime.Milliseconds:9589.52|#ModelName:wizardlmtest,Level:Model|#type:GAUGE|#hostname:criostasis-Z690-AERO-D,1712898612,f48ab6e9-29ed-40ae-9c78-47ec61ae0d58, pattern=[METRICS]
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_METRICS - HandlerTime.ms:9589.52|#ModelName:wizardlmtest,Level:Model|#hostname:criostasis-Z690-AERO-D,requestID:f48ab6e9-29ed-40ae-9c78-47ec61ae0d58,timestamp:1712898612
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0 ACCESS_LOG - /127.0.0.1:49112 "POST /predictions/wizardlmtest HTTP/1.1" 200 9591
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]PredictionTime.Milliseconds:9589.58|#ModelName:wizardlmtest,Level:Model|#type:GAUGE|#hostname:criostasis-Z690-AERO-D,1712898612,f48ab6e9-29ed-40ae-9c78-47ec61ae0d58, pattern=[METRICS]
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_METRICS - PredictionTime.ms:9589.58|#ModelName:wizardlmtest,Level:Model|#hostname:criostasis-Z690-AERO-D,requestID:f48ab6e9-29ed-40ae-9c78-47ec61ae0d58,timestamp:1712898612
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898612
+2024-04-12T00:10:12,166 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - ts_inference_latency_microseconds.Microseconds:9590520.652|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898612
+2024-04-12T00:10:12,167 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - ts_queue_latency_microseconds.Microseconds:60.411|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898612
+2024-04-12T00:10:12,167 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.job.RestJob - Waiting time ns: 60411, Backend time ns: 9590828772
+2024-04-12T00:10:12,167 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - QueueTime.Milliseconds:0.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898612
+2024-04-12T00:10:12,167 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 9590
+2024-04-12T00:10:12,167 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:1.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898612
+2024-04-12T00:10:23,758 [INFO ] epollEventLoopGroup-3-3 TS_METRICS - ts_inference_requests_total.Count:1.0|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898623
+2024-04-12T00:10:23,758 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Flushing req.cmd PREDICT repeats 1 to backend at: 1712898623758
+2024-04-12T00:10:23,758 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Looping backend response at: 1712898623758
+2024-04-12T00:10:23,758 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Backend received inference at: 1712898623
+2024-04-12T00:10:23,759 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:23,759 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:23,759 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new LLMChain chain...[0m
+2024-04-12T00:10:23,759 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Prompt after formatting:
+2024-04-12T00:10:23,759 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [32;1m[1;3mGiven the following conversation and a follow up question, rephrase the follow up question to be a standalone question, in its original language.
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Chat History:
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Human: hello
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Assistant:  Hello! How may I assist you today?
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Human: tell me about HSU
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Assistant:   HSU stands for Hardin-Simmons University, a private Christian university located in Abilene, Texas. It offers over 70 undergraduate majors and programs, as well as several graduate degrees including Master's and Doctoral programs. The campus is home to the Cowboy Church, which hosts weekly worship services for students, faculty, and staff. HSU also has a variety of student organizations and clubs that cater to different interests such as music, sports, community service, and more.
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Follow Up Input: what kind of clubs?
+2024-04-12T00:10:23,760 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Standalone question:[0m
+2024-04-12T00:10:27,381 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:27,381 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:10:28,271 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - 
+2024-04-12T00:10:28,271 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:        load time =     182.87 ms
+2024-04-12T00:10:28,271 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:      sample time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+2024-04-12T00:10:28,271 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings: prompt eval time =     887.65 ms /    32 tokens (   27.74 ms per token,    36.05 tokens per second)
+2024-04-12T00:10:28,271 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:        eval time =       0.00 ms /     1 runs   (    0.00 ms per token,      inf tokens per second)
+2024-04-12T00:10:28,271 [WARN ] W-9000-wizardlmtest_1.0-stderr MODEL_LOG - llama_print_timings:       total time =     888.71 ms
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new StuffDocumentsChain chain...[0m
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Entering new LLMChain chain...[0m
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Prompt after formatting:
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [32;1m[1;3mUse the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+2024-04-12T00:10:28,274 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - grade. What is SAP? – Satisfactory Academic Progress (SAP) means that you are satisfactorily progressing toward degree completion by qualitative (GPA) and quantitative (Pace and Maximum Timeframe) measures. The HSU Financial Aid Office is required by
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - on areas where I could improve.” -Marcus McCray, Licensed Professional Counselor-Associate, ‘23 “I really appreciated the fact that all of the professors were from such a wide array of backgrounds and theoretical orientations, so we were able to have a
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - status) the student previously had. We can't wait to see you at HSU! Click the button below and get started on your application. If you have any questions, you can call Admissions at 877-GO-HSUTX. The best way to really experience Hardin-Simmons
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - time and associated class preparation. Each credit hour reflects one hour of instructional time per week for a total of 15 instructional hours per semester. Graduate students are expected to spend a minimum of 3 hours in class preparation for each credit
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Question:  What types of clubs are available at Hardin-Simmons University for students with various interests like music, sports, community service, etc.?
+2024-04-12T00:10:28,275 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Helpful Answer:[0m
+2024-04-12T00:10:38,682 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:38,682 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:10:38,682 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - 
+2024-04-12T00:10:38,682 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - [1m> Finished chain.[0m
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_LOG - Chat History Updated for User kwmhfi: [('hello', ' Hello! How may I assist you today?'), ('tell me about HSU', "  HSU stands for Hardin-Simmons University, a private Christian university located in Abilene, Texas. It offers over 70 undergraduate majors and programs, as well as several graduate degrees including Master's and Doctoral programs. The campus is home to the Cowboy Church, which hosts weekly worship services for students, faculty, and staff. HSU also has a variety of student organizations and clubs that cater to different interests such as music, sports, community service, and more."), ('what kind of clubs?', '  At Hardin-Simmons University, there is a wide variety of student organizations and clubs that cater to different interests such as music, sports, community service, and more. For instance, the Music Department offers several ensembles like the HSU Choir, Wind Ensemble, Jazz Band, Orchestra, etc., for students interested in music. The Athletic Department has teams for various sports like basketball, football, soccer, volleyball, tennis, golf, track & field, softball, and baseball. For community service enthusiasts, there are clubs such as the HSU Habitat for Humanity Club, Circle K International, and many others that focus on volunteering in local communities or raising awareness about social issues. Additionally, there are academic-based clubs like the Pre-Med Club, Business Society, Math Club, etc., catering to students interested in specific fields of study. These clubs provide a platform for students to develop their skills, network with peers and professionals, participate in competitions or events, and make a positive impact on society while enjoying their college experience at HSU.')]
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]HandlerTime.Milliseconds:15259.92|#ModelName:wizardlmtest,Level:Model|#type:GAUGE|#hostname:criostasis-Z690-AERO-D,1712898639,c687beba-96fe-4b26-a8fe-e5d75df76498, pattern=[METRICS]
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0 ACCESS_LOG - /127.0.0.1:45000 "POST /predictions/wizardlmtest HTTP/1.1" 200 15262
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_METRICS - HandlerTime.ms:15259.92|#ModelName:wizardlmtest,Level:Model|#hostname:criostasis-Z690-AERO-D,requestID:c687beba-96fe-4b26-a8fe-e5d75df76498,timestamp:1712898639
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - Requests2XX.Count:1.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898639
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0-stdout org.pytorch.serve.wlm.WorkerLifeCycle - result=[METRICS]PredictionTime.Milliseconds:15259.96|#ModelName:wizardlmtest,Level:Model|#type:GAUGE|#hostname:criostasis-Z690-AERO-D,1712898639,c687beba-96fe-4b26-a8fe-e5d75df76498, pattern=[METRICS]
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0-stdout MODEL_METRICS - PredictionTime.ms:15259.96|#ModelName:wizardlmtest,Level:Model|#hostname:criostasis-Z690-AERO-D,requestID:c687beba-96fe-4b26-a8fe-e5d75df76498,timestamp:1712898639
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - ts_inference_latency_microseconds.Microseconds:1.5260969051E7|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898639
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - ts_queue_latency_microseconds.Microseconds:83.711|#model_name:wizardlmtest,model_version:default|#hostname:criostasis-Z690-AERO-D,timestamp:1712898639
+2024-04-12T00:10:39,019 [DEBUG] W-9000-wizardlmtest_1.0 org.pytorch.serve.job.RestJob - Waiting time ns: 83711, Backend time ns: 15261355984
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - QueueTime.Milliseconds:0.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898639
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0 org.pytorch.serve.wlm.WorkerThread - Backend response time: 15261
+2024-04-12T00:10:39,019 [INFO ] W-9000-wizardlmtest_1.0 TS_METRICS - WorkerThreadTime.Milliseconds:0.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898639
+2024-04-12T00:10:41,898 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - Parse metrics failed: Note: NumExpr detected 32 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2024-04-12T00:10:41,899 [WARN ] pool-3-thread-1 org.pytorch.serve.metrics.MetricCollector - Parse metrics failed: NumExpr defaulting to 8 threads.
+2024-04-12T00:10:42,044 [INFO ] pool-3-thread-1 TS_METRICS - CPUUtilization.Percent:0.0|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,044 [INFO ] pool-3-thread-1 TS_METRICS - DiskAvailable.Gigabytes:224.5498809814453|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,044 [INFO ] pool-3-thread-1 TS_METRICS - DiskUsage.Gigabytes:226.1154670715332|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,044 [INFO ] pool-3-thread-1 TS_METRICS - DiskUtilization.Percent:50.2|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,045 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUtilization.Percent:60.28944797264289|#Level:Host,DeviceId:0|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,045 [INFO ] pool-3-thread-1 TS_METRICS - GPUMemoryUsed.Megabytes:9873.0|#Level:Host,DeviceId:0|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,045 [INFO ] pool-3-thread-1 TS_METRICS - GPUUtilization.Percent:0.0|#Level:Host,DeviceId:0|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,045 [INFO ] pool-3-thread-1 TS_METRICS - MemoryAvailable.Megabytes:43492.8046875|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,045 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUsed.Megabytes:19282.8046875|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
+2024-04-12T00:10:42,045 [INFO ] pool-3-thread-1 TS_METRICS - MemoryUtilization.Percent:32.1|#Level:Host|#hostname:criostasis-Z690-AERO-D,timestamp:1712898642
