@@ -15,7 +15,7 @@ from tqdm import tqdm
 
 CHATBOT_ENDPOINT = 'http://localhost:5000/chat'
 SAMPLE_QUESTION = "hello"
-NUM_SIMULATED_USERS = 100
+NUM_SIMULATED_USERS = 2
 
 
 # Function to generate a random user_id for tracking

@@ -26,7 +26,7 @@ const sendMessage = async () => {
 
   try {
     // const response = await fetch("http://localhost:5000/chat", {
-    const response = await fetch("http://10.72.8.178:5000/chat", {
+    const response = await fetch("http://localhost:5000/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
