@@ -1,8 +1,8 @@
 """
 Backend that handles chat functionality using FastAPI
 
-@author: Ahmer Gondal
-@version:
+@author: Ahmer Gondal, Jaden Barnwell
+@version: April 18, 2024
 """
 
 import asyncio
@@ -16,6 +16,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from database_helper import Connection
 from asyncio import Lock
+from bson import json_util
+import json
+
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -137,6 +140,25 @@ async def save_chat(request: SaveChatRequest):
         return JSONResponse(content={"message": "Chat history updated successfully"}, status_code=200)
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
+#will be used for admin page to see all the logs through our save chat
+@app.route('/find_chat_logs', methods=['GET'])
+def find_chatlog():
+    with app.app_context():
+        db_connection = Connection()
+        db_connection.connect("admin", "Stevencantremember", "admin")
+        users = db_connection.read("chatbot", "chat_logs")
+        #returns list [] with results need to jsonify this
+        #print(f'api end users: {users}')
+        db_connection.close()
+        
+        if users:
+            # below line fixes object_id so it can be processed
+            users_json = json_util.dumps(users)
+            #loads gets rid of \\ in front of every variable
+            parsed_data = json.loads(users_json)
+            return JSONResponse(parsed_data), 200
+        return JSONResponse({'error': 'chatlog not found'}), 404
 
 
 if __name__ == "__main__":

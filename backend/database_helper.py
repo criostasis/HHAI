@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 """
 Helper file for HossBot MongoDB database operations.
 
-@author: Steven Barnas
+@author: Steven Barnas, Jaden Barnwell
 @version: March 28, 2024 
 """
 
