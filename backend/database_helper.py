@@ -18,7 +18,6 @@ class Connection(object):
         self.username = None
         self.chat_logs_collection = None
 
-
     """
     Connects to the MongoDB database using the provided credentials
     @param username: username of MongoDB user (String)
@@ -38,6 +37,7 @@ class Connection(object):
 
         # Create the chat_logs collection if it doesn't exist
         self.create_chat_logs_collection()
+        
     """
     Reads and prints all the documents inside the provided directory
     @param db_choice: which MongoDB database to access (String)
@@ -126,8 +126,6 @@ class Connection(object):
         record = collection.find({"email": lower_email})
         return record[0]['email']
     
-    """"""
-    
     """
     Gets chat history of a given HSU.class instance 
     @param self the instance of HSU we're using to access said chat history
@@ -146,11 +144,12 @@ class Connection(object):
                 return []
         except Exception as e:
             raise Exception(f"Error retrieving chat history: {str(e)}")
+            
     """
     Appends chat history to the associated user_id
     @param self the instance of HSU.py 
     @param user_id the id associated with the given chat log history
-    @param chat_history the chat history we're goign to append to that given chat log 
+    @param chat_history the chat history we're going to append to that given chat log 
     """        
     def update_chat_history(self, user_id, chat_history):
         try:
@@ -174,7 +173,6 @@ class Connection(object):
         if "chat_logs" in db.list_collection_names():
             db.drop_collection("chat_logs")
         self.chat_logs_collection = db.create_collection("chat_logs")
-
 
     """
     Checks if inserted link already exists
@@ -274,22 +272,23 @@ class Connection(object):
         # Close the connection
         self.client.close()
 
-test = Connection()
-Connection.connect(test, "admin", "Stevencantremember", "admin")
+"""
+Sample connection object setup
+"""
+# test = Connection()
+# Connection.connect(test, "admin", "Stevencantremember", "admin")
+
+"""
+Sample commands
+"""
+# Connection.read(test,"chatbot", "chatlog")
 # Connection.insert_users(test, 2, "Steven Barnas", "steven@hsutx.edu")
 # Connection.insert_links(test, "www.hsutx.edu")
+# Connection.insert_chat_log("Lorem Ipsum 2", 0, 0, 0)
 # Connection.update_tally(test, "www.hsutx.edu")
-Connection.read(test,"chatbot", "users")
-# Connection.read(test,"chatbot", "links")
-# Connection.delete_chat_log(test, '65d7863a3a91bedf9928cf8f')
-# Connection.read(test,"chatbot", "chatlog")
-# print(Connection.find_tally(test, "www.hsutx.edu"))
-# Connection.insert_chat_log(test, 1, "Lorem Ipsum 2", 0, 0, 0, 1)
-# print(Connection.find_link(test, "www.hsutx.edu"))
-# print(Connection.test_object(test, "Steven Barnas"))
+# Connection.read(test,"chatbot", "users")
+# Connection.delete_chat_log(test, '6605d5e1c432bc24cef4a451')
 # Connection.delete_users(test, 2, "Steven Barnas", "steven@hsutx.edu")
 # Connection.read(test,"chatbot", "users")
-# print(jsonify(Connection.read(test,"chatbot", "users")))
 # Connection.close(test)
-
 # upd = users.update_one({'user_id': 1}, {'$set':{'name': 'Jaden Barnwell', 'email': 'jabster@hsutx.edu'}})
