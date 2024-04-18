@@ -82,6 +82,11 @@ async def process_chat_request(question, user_id):
         return {"error": "An error occurred during chat processing."}
 
 
+@app.get("/status")
+def status():
+    return {"status": "ok"}
+
+
 @app.post("/chat")
 async def chat(request: ChatRequest):
     question = request.question
@@ -136,3 +141,4 @@ async def save_chat(request: SaveChatRequest):
 
 if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=5000, workers=4)
+
