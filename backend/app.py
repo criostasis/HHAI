@@ -1,8 +1,8 @@
 """
 Backend that handles chat functionality using FastAPI
 
-@author: Ahmer Gondal
-@version:
+@author: Ahmer Gondal, Jaden Barnwell
+@version: April 18, 2024
 """
 
 import asyncio
@@ -16,6 +16,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from database_helper import Connection
 from asyncio import Lock
+from bson import json_util
+import json
+
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -110,6 +113,47 @@ async def chat(request: ChatRequest):
 
 
 @app.post("/save_chat")
+async def save_chat(request: Request):
+    try:
+        data = await request.json()  # Asynchronously read the JSON data from the request
+        user_id = data.get('user_id')
+        user_inputs = data.get('user_inputs', [])
+        bot_inputs = data.get('bot_inputs', [])
+
+        if not user_inputs or not bot_inputs:
+            return JSONResponse(content={"error": "Missing required parameters"}, status_code=400)
+
+        # Function to save chat history asynchronously
+        async def save_chat_history():
+            try:
+                # Use context manager for connection
+                db_connection = Connection()
+                db_connection.connect("admin", "Stevencantremember", "admin")
+                chat_log = ""
+                # Generate the chat log
+                for user_input, bot_input in zip(user_inputs, bot_inputs):
+                    chat_log += f"User: {user_input} Bot: {bot_input}\n"
+                # Insert the chat log into the database
+                response_flag_1 = 0
+                response_flag_2 = 0
+                response_flag_3 = 0
+                save_flag = 1
+                db_connection.insert_chat_log(user_id, chat_log, response_flag_1, response_flag_2, response_flag_3)
+                db_connection.close()
+            except Exception as e:
+                logging.error(f"Error saving chat log: {e}", exc_info=True)
+                raise HTTPException(status_code=500, detail=str(e))
+
+        # Execute the asynchronous task
+        await asyncio.gather(save_chat_history())
+
+        return JSONResponse(content={"message": "Chat log saved successfully"}, status_code=200)
+
+    except Exception as e:
+        logging.error(f"Error processing request: {e}", exc_info=True)
+        return JSONResponse(content={"error": str(e)}, status_code=500)
+    
+"""
 async def save_chat(request: SaveChatRequest):
     user_id = request.user_id
     user_inputs = request.user_inputs
@@ -137,6 +181,26 @@ async def save_chat(request: SaveChatRequest):
         return JSONResponse(content={"message": "Chat history updated successfully"}, status_code=200)
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+"""
+
+#will be used for admin page to see all the logs through our save chat
+@app.get('/find_chat_logs')
+def find_chatlog():
+    with app.app_context():
+        db_connection = Connection()
+        db_connection.connect("admin", "Stevencantremember", "admin")
+        users = db_connection.read("chatbot", "chatlog")
+        #returns list [] with results need to jsonify this
+        #print(f'api end users: {users}')
+        db_connection.close()
+        
+        if users:
+            # below line fixes object_id so it can be processed
+            users_json = json_util.dumps(users)
+            #loads gets rid of \\ in front of every variable
+            parsed_data = json.loads(users_json)
+            return JSONResponse(parsed_data), 200
+        return JSONResponse({'error': 'chatlog not found'}), 404
 
 
 if __name__ == "__main__":
