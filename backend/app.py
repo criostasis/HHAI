@@ -138,7 +138,7 @@ async def save_chat(request: Request):
                 response_flag_2 = 0
                 response_flag_3 = 0
                 save_flag = 1
-                db_connection.insert_chat_log(user_id, chat_log, response_flag_1, response_flag_2, response_flag_3)
+                db_connection.insert_chat_log(user_id, chat_log, response_flag_1, response_flag_2, response_flag_3, save_flag)
                 db_connection.close()
             except Exception as e:
                 logging.error(f"Error saving chat log: {e}", exc_info=True)
