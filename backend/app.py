@@ -113,12 +113,12 @@ async def chat(request: ChatRequest):
 
 
 @app.post("/save_chat")
-async def save_chat(request: Request):
+async def save_chat(request: SaveChatRequest):
     try:
-        data = await request.json()  # Asynchronously read the JSON data from the request
-        user_id = data.get('user_id')
-        user_inputs = data.get('user_inputs', [])
-        bot_inputs = data.get('bot_inputs', [])
+        #data = await request.json()  # Asynchronously read the JSON data from the request
+        user_id = request.user_id
+        user_inputs = request.user_inputs
+        bot_inputs = request.bot_inputs
 
         if not user_inputs or not bot_inputs:
             return JSONResponse(content={"error": "Missing required parameters"}, status_code=400)
@@ -147,41 +147,13 @@ async def save_chat(request: Request):
         # Execute the asynchronous task
         await asyncio.gather(save_chat_history())
 
-        return JSONResponse(content={"message": "Chat log saved successfully"}, status_code=200)
+        return JSONResponse(content={"message": "New Chat log saved successfully"}, status_code=200)
 
     except Exception as e:
         logging.error(f"Error processing request: {e}", exc_info=True)
         return JSONResponse(content={"error": str(e)}, status_code=500)
     
-"""
-async def save_chat(request: SaveChatRequest):
-    user_id = request.user_id
-    user_inputs = request.user_inputs
-    bot_inputs = request.bot_inputs
 
-    if not user_inputs or not bot_inputs:
-        return JSONResponse(content={"error": "Missing required parameters"}, status_code=400)
-
-    async def save_chat_history(user_id, user_inputs, bot_inputs):
-        try:
-            db_connection = Connection()
-            db_connection.connect("admin", "password", "admin")  # Placeholder password
-            # Retrieve the existing chat history for the user from MongoDB
-            chat_history = db_connection.get_chat_history(user_id)
-            # Append the new user inputs and bot inputs to the chat history
-            chat_history.extend(zip(user_inputs, bot_inputs))
-            # Update the chat history in MongoDB
-            db_connection.update_chat_history(user_id, chat_history)
-            db_connection.close()
-        except Exception as e:
-            logging.error(f"An error occurred while saving chat history: {e}", exc_info=True)
-
-    try:
-        await asyncio.gather(save_chat_history(user_id, user_inputs, bot_inputs))
-        return JSONResponse(content={"message": "Chat history updated successfully"}, status_code=200)
-    except Exception as e:
-        return JSONResponse(content={"error": str(e)}, status_code=500)
-"""
 
 #will be used for admin page to see all the logs through our save chat
 @app.get('/find_chat_logs')
