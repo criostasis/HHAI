@@ -99,6 +99,8 @@ function ChatBot() {
     for(let b of bot){
       b.classList.remove("message");
     }
+
+
     fetch("http://10.72.8.178:5000/save_chat", {
       method: "POST",
       headers: {
@@ -108,12 +110,13 @@ function ChatBot() {
         user_id: userId,
         user_inputs: userInputs,
         bot_inputs: botInputs,
-
+        
       }),
     })
     
       .then((response) => {
         console.log(response);
+  
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -162,11 +165,14 @@ function ChatBot() {
                 <br />
               </div>
               ))}
-          <div id="loading" className="hidden ml-auto">
-            <div className="typing-indicator">
-              <div></div>
-              <div></div>
-              <div></div>
+
+          <div className="flex w-1/4 ml-auto justify-evenly">
+            <div id="loading" className="hidden ml-auto">
+              <div className="typing-indicator">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
             </div>
           </div>
           <div id="rating" className="text-right rtl:text-right hidden">
