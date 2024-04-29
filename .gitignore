@@ -45,3 +45,6 @@ flask_app.log
 
 # PyCharm files
 .idea
+
+nohup.out
+/LLM/Other_scripts/Dataset
